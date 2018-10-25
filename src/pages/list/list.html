@@ -3,11 +3,12 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>My First List</ion-title>
+    <ion-title>Navigation Speech Test</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content>
+  <p style="padding: 6px 12px">Select a navigation item below, and we’ll read some text on page load.</p>
   <ion-list>
     <button ion-item *ngFor="let item of items" (click)="itemTapped($event, item)">
       <ion-icon name="{{item.icon}}" item-left></ion-icon>

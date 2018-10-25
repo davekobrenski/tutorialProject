@@ -3,23 +3,46 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Hello Ionic</ion-title>
+    <ion-title>Text to Speech</ion-title>
   </ion-navbar>
 </ion-header>
 
 
 <ion-content padding>
+  <p>Enter your own text below to have the app speak it, or use one of the samples by selecting an option below. (Click the "Speak" button to hear the text)</p>
 
-  <h3>Welcome to your first Ionic app!</h3>
+  <ion-list>
+    <ion-item>
+      <ion-label color="primary" floating>Text Samples:</ion-label>
+      <ion-select interface="action-sheet" [(ngModel)]="textToInsert" (ionChange)="updateText($event)">
+        <ion-option value="anthropocene">The Anthropocene</ion-option>
+        <ion-option value="pleistocene">The Pleistocene</ion-option>
+        <ion-option value="science">Lots of Science Words</ion-option>      
+      </ion-select>
+    </ion-item>
 
-  <p>
-    This starter project is our way of helping you get a functional app running in record time.
-  </p>
-  <p>
-    Follow along on the tutorial section of the Ionic docs!
-  </p>
-  <p>
-    <button ion-button color="primary" menuToggle>Toggle Menu</button>
-  </p>
+    <ion-item>
+      <ion-label color="primary" floating>Text to Speak:</ion-label>
+      <ion-textarea rows="10" clearInput="true" placeholder="Type some text here" [(ngModel)]="speakingText"></ion-textarea>
+    </ion-item>
+  </ion-list>
+
+  <!-- <ion-item>
+    <ion-label>Locale</ion-label>
+    <ion-select [(ngModel)]="speakingLocale">
+      <ion-option value="en-US">en-US</ion-option>
+      <ion-option value="en-G">en-GB</ion-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-item>
+    <ion-range [(ngModel)]="speakingRate" min="100" max="200">
+      <ion-icon range-left small name="speedometer"></ion-icon>
+      <ion-icon range-right name="speedometer"></ion-icon>
+    </ion-range>
+  </ion-item> -->
+
+  <button ion-button full icon-left (click)="speakText()"><ion-icon name="megaphone"></ion-icon> Speak To Me!</button>
+
 
 </ion-content>
